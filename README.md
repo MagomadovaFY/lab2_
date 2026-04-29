@@ -153,3 +153,93 @@ curl -s http://127.0.0.1:5002/api/users | jq
     }
   ]
 }
+```
+## Тест 2. GET /api/users/1 (один пользователь)
+```bash
+curl -s http://127.0.0.1:5002/api/users/1 | jq
+```
+## Результат:
+```bash
+{
+  "id": 1,
+  "username": "ivanov",
+  "email": "ivanov@example.com"
+}
+```
+## Тест 3. POST /api/users (создание пользователя)
+```bash
+curl -X POST http://127.0.0.1:5002/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"username": "sidorov", "email": "sidorov@mail.ru"}' | jq
+```
+## Результат:
+```bash
+{
+  "id": 3,
+  "username": "sidorov",
+  "email": "sidorov@mail.ru"
+}
+```
+### Тест 4. Проверка, что пользователь добавился
+```bash
+curl -s http://127.0.0.1:5002/api/users | jq
+
+```
+### Результат
+```bash
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "ivanov",
+      "email": "ivanov@example.com"
+    },
+    {
+      "id": 2,
+      "username": "petrova",
+      "email": "petrova@example.com"
+    },
+    {
+      "id": 3,
+      "username": "sidorov",
+      "email": "sidorov@mail.ru"
+    }
+  ]
+}
+```
+### Тест 5. GET /api/users/999 (ошибка 404)
+```bash
+curl -s http://127.0.0.1:5002/api/users/999 | jq
+
+```
+## Результат
+```bash
+{
+  "error": "User not found"
+}
+
+```
+***Выводы***
+В ходе выполнения лабораторной работы:
+
+Проанализирован HTTP-трафик с помощью утилиты curl. На примере сайта t.me изучен механизм редиректа с HTTP на HTTPS (код 301).
+
+Создан RESTful API на Python с использованием фреймворка Flask. Реализованы основные операции: получение списка, получение одного элемента, создание нового элемента.
+
+Составлена конфигурация Nginx для проксирования запросов к Flask-приложению.
+
+Проведено тестирование всех эндпоинтов API, результаты проверены с помощью утилиты jq.
+
+### Полученные навыки:
+Работа с сетевыми утилитами curl, jq
+
+Анализ HTTP-заголовков и кодов состояния
+
+Разработка REST API на Flask
+
+Настройка виртуального окружения Python
+
+Конфигурирование Nginx в качестве обратного прокси
+
+Документирование выполненной работы в формате README
+
