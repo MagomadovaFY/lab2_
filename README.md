@@ -43,3 +43,17 @@ curl -v http://t.me
 <
 <html>
 <head><title>301 Moved Permanently</title></head>
+
+```
+### Анализ
+Сервер t.me вернул код состояния 301 Moved Permanently и заголовок Location: https://t.me/. Это означает, что ресурс постоянно перемещен на защищенную версию (HTTPS). Браузер или клиент должен автоматически выполнить перенаправление по новому адресу.
+
+### Часть 2. Разработка REST API "Пользователи системы"
+
+### Сущность
+```bash
+{
+  "id": 1,
+  "username": "ivanov",
+  "email": "ivanov@example.com"
+}
