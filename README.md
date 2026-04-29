@@ -116,7 +116,7 @@ python3 app.py
 
 ### Часть 3. Настройка Nginx
 ## Конфигурация Nginx (файл nginx.conf)
-
+```bash
 server {
     listen 8080;
     server_name localhost;
