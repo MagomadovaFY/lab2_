@@ -25,7 +25,7 @@ curl -v http://t.me
 
 ```
 ### Вывод
-
+```bash
 * Host t.me:80 was resolved.
 * Connected to t.me (149.154.167.99) port 80
 > GET / HTTP/1.1
